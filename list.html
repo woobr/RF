@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+<script>
+
+Ext.application({
+	name: "MyApp",
+    requires: [
+               'Ext.MessageBox'
+           ],
+	
+	launch: function() {
+		var panel1 = Ext.create('Ext.List', {
+		    fullscreen: true,
+
+		    store: {
+		        fields: ['name'],
+		        data: [
+		            {name: 'Cowper'},
+		            {name: 'Everett'},
+		            {name: 'University'},
+		            {name: 'Forest'}
+		        ]
+		    },
+
+		    itemTpl: '{name}',
+
+		    listeners: {
+		        select: function(view, record) {
+		            Ext.Msg.alert('Selected!', 'You selected ' + record.get('name'));
+		        }
+		    }
+		});
+		
+		Ext.Viewport.add(panel1);
+	}
+});
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
