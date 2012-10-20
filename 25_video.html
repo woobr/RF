@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="euc-kr">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png">	
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>
+		
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.require("Ext.Video");
+		</script>
+
+		<script type="text/javascript">
+			Ext.application({
+				name: "MyApp",
+				launch: function() {
+					var video = Ext.create("Ext.Video", {
+						width    : 300,
+						height   : 200,
+						url      : "../media/BigBuck.m4v",
+						posterUrl: "../media/BigBuck.png"
+					});
+
+					var videoPanel = new Ext.Panel({
+						items: [ video ]
+					});
+
+					var toolbar = Ext.create("Ext.Toolbar", {
+						docked: "top",
+						items: [
+							{text:"Play", ui:"confirm", handler: function() {video.play();}},
+							{text:"Pause", ui:"confirm", handler: function() {video.pause();}},
+							{text:"Toggle", ui:"confirm", handler: function() {video.toggle();}}
+						]
+					});
+
+					var rootPanel = Ext.create("Ext.Panel", {
+						layout: { type:"vbox", align:"top", pack:"start" },
+						items: [ toolbar, videoPanel ]
+					}); 
+					Ext.Viewport.add(rootPanel);	
+				}
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

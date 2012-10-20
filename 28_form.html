@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="euc-kr">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png">	
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+		
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.require("Ext.form.*");
+			Ext.require("Ext.field.*");
+		</script>
+
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.application({
+				name: "MyApp",
+				launch: function() {
+					var toolbar = Ext.create("Ext.Toolbar", {
+						docked: "top",
+						title: "회원 가입"
+					});
+					
+					var formPanel = Ext.create("Ext.form.Panel", {
+						items: [
+							{xtype:"fieldset", items: [
+								{xtype:"textfield", name:"mid", label:"아이디"},
+								{xtype:"textfield", name:"mname", label:"이름"}
+							]},
+							{
+								xtype:"fieldset", 
+								title:"옵션 사항", 
+								instructions: "입력하지 않아도 됩니다.",
+								items:[
+									{xtype:"textfield", name:"mtel", label:"전화"},
+									{xtype:"textfield", name:"maddress", label:"주소"}
+								]
+							},
+						]
+					});
+
+					var rootPanel = Ext.create("Ext.Panel", {
+						layout: "fit",
+						items: [ toolbar, formPanel ]
+					}); 
+					Ext.Viewport.add(rootPanel);	
+				}
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

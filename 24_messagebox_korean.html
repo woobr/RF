@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="euc-kr">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png">	
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.application({
+				name: "MyApp",
+				launch: function() {
+					var btnOrder = {
+						xtype:"button",
+						text:"주문",
+						ui:"confirm",
+						handler:function() {
+							Ext.Msg.show({
+								title:"확인",
+								message: "주문하시겠습니까?",
+								buttons: [ {text:"주문", itemId:"ok"}, {text:"취소", itemId:"cancel"} ],
+								fn:function(buttonId) {
+									if(buttonId == "ok") {
+										console.log("주문합니다.");
+									} else {
+										console.log("최소되었습니다.");
+									}
+								}
+							});
+						}	
+					};
+
+					var toolbar = Ext.create("Ext.Toolbar", {
+						docked: "top",
+						items: [ btnOrder ]
+					});
+
+					var rootPanel = Ext.create("Ext.Panel", {
+						items: [ toolbar ]
+					}); 
+					Ext.Viewport.add(rootPanel);	
+				}
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>		

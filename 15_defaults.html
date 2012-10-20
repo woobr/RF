@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+		
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.application({
+				name: "MyApp",
+				requires: [
+				           'Ext.MessageBox'
+				       ],
+				launch: function() {
+					var btn1 = Ext.create("Ext.Button", { text: "버튼1" });
+					var btn2 = new Ext.Button({ text: "버튼2" });
+					var btn3 = { xtype:"button", text: "버튼3" };
+
+					var rootPanel = Ext.create("Ext.Panel", {
+						layout: { type:"hbox", align:"top" },
+						defaults: {
+							flex: 1,
+							handler: function(button, event) {
+								Ext.Msg.alert("알림", button.getText() + "을 클릭", Ext.emptyFn);
+							}
+						},						
+						items: [ btn1, btn2, btn3 ]
+					});
+					Ext.Viewport.add(rootPanel);
+				}
+			});
+		</script>
+	</head> 
+	<body>    
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="euc-kr">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png">	
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+		
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.require("Ext.ActionSheet");
+		</script>
+
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.application({
+				name: "MyApp",
+				launch: function() {	
+					var actionSheet = Ext.create("Ext.ActionSheet", {
+						items: [
+							{ text: "Delete", ui: "decline" },
+							{ text: "Save" },
+							{ text: "Cancel", ui: "confirm", handler: function() { actionSheet.hide(); } }
+						],
+						hidden:true
+					});
+					Ext.Viewport.add(actionSheet);
+
+					var toolbar = Ext.create("Ext.Toolbar", {
+						docked: "top",
+						items: [
+							{ 
+								text: "showActionSheet", 
+								ui: "confirm", 
+								handler: function() { actionSheet.show(); } 
+							}
+						]
+					});
+
+					var rootPanel = Ext.create("Ext.Panel", {
+						items: [ toolbar ]
+					}); 
+					Ext.Viewport.add(rootPanel);	
+				}
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

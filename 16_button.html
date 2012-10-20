@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png">	
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+		
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.application({
+				name: "MyApp",
+				requires: [
+				           'Ext.MessageBox',
+				           'Ext.Panel',
+				           'Ext.Button'
+					       ],
+				launch: function() {
+					var item1 = {
+						layout: "hbox",
+						items: [
+							{ xtype:"button", ui:"normal", text:"normal", iconCls:"action", iconMask:true,
+								handler:function() {
+									Ext.Msg.alert("Message", "Hi~~", Ext.emptyFn);
+								} 
+							},
+							{ xtype:"button", ui:"round", text:"round" },
+							{ xtype:"button", ui:"small", text:"small" }
+						]
+					};
+					
+					var item2 = {
+						layout: "hbox",
+						items: [
+							{ xtype:"button", ui:"decline", text:"decline", iconCls:"home", iconMask:true},
+							{ xtype:"button", ui:"decline-round", text:"decline-round" },
+							{ xtype:"button", ui:"decline-small", text:"decline-small" }
+						]
+					};
+					
+					var item3 = {
+						layout: "hbox",
+						items: [
+							{ xtype:"button", ui:"confirm", text:"confirm", iconCls:"locate", iconMask:true, badgeText:"2"},
+							{ xtype:"button", ui:"confirm-round", text:"confirm-round" },
+							{ xtype:"button", ui:"confirm-small", text:"confirm-small" }
+						]
+					};		
+					
+					var item4 = {
+						layout: "hbox",
+						items: [
+							{ xtype:"button", ui:"action", text:"action", iconCls:"favorites", iconMask:true },
+							{ xtype:"button", ui:"action-round", text:"action-round" },
+							{ xtype:"button", ui:"action-small", text:"action-small" }
+						]
+					};		
+					
+					var item5 = {
+						layout: "hbox",
+						items: [
+							{ xtype:"button", ui:"back", text:"back",  iconCls:"arrow_left", iconMask:true },
+							{ xtype:"button", ui:"forward", text:"Forward",  iconCls:"arrow_right", iconMask:true, iconAlign:"right"}
+						]
+					};
+					
+					var rootPanel = Ext.create("Ext.Panel", {
+						layout: { type: "vbox", align: "middle", pack:"justify"},
+						items: [ item1, item2, item3, item4, item5 ]
+					}); 
+					Ext.Viewport.add(rootPanel);
+				}
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

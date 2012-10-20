@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png">	
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+				
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.application({
+				name: "MyApp",
+				launch: function() {
+					var dockedItem1 = Ext.create("Ext.Panel", {
+						docked: "top",
+						style: "background-color:red;",
+						html: "top"
+					});
+					
+					var dockedItem2 = Ext.create("Ext.Panel", {
+						docked: "left",
+						style: "background-color:gray;",
+						html: "left"
+					});
+					
+					var dockedItem3 = Ext.create("Ext.Panel", {
+						docked: "bottom",
+						style: "background-color:yellow;",
+						html: "bottom"
+					});
+					
+					var dockedItem4 = Ext.create("Ext.Panel", {
+						docked: "right",
+						style: "background-color:green;",
+						html: "right"
+					});	
+
+					var rootPanel = Ext.create("Ext.Panel", { 
+						items: [ dockedItem1, dockedItem2, dockedItem3, dockedItem4 ]
+					});
+					Ext.Viewport.add(rootPanel);
+				}
+			});
+		</script>		
+	</head>		
+	<body>	
+	</body>
+</html>

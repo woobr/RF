@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="euc-kr">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title>Sencha Touch</title>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png">	
+		
+		<link rel="stylesheet" type="text/css" href="./sdk/resources/css/sencha-touch.css">
+		<script type="text/javascript" src="./sdk/sencha-touch.js"></script>	
+		
+		<script type="text/javascript">
+			Ext.Loader.setConfig({ enabled: true });
+			Ext.require("Ext.TitleBar");
+		</script>
+				
+		<script type="text/javascript">
+			Ext.application({
+				name: "MyApp",
+				launch: function() {
+					var titleBar = Ext.create("Ext.TitleBar", {
+						docked: "top",
+						ui: "light",
+						title: "TitleBar",
+						items: [
+							{text:"Prev", ui:"back"},
+							{text:"Next", ui:"forward", align:"right"}
+						]
+					});
+			
+					var rootPanel = Ext.create("Ext.Panel", {
+						items: [ titleBar ]
+					});
+					Ext.Viewport.add(rootPanel);
+				}
+			});
+		</script>		
+	</head>		
+	<body>	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
